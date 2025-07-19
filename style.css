@@ -1,0 +1,20 @@
+.warning {
+    animation: warning-light 1000ms linear infinite;
+}
+
+@keyframes warning-light {
+    0%{
+        color: black;
+    }
+    50%{
+        color: red;
+    }
+
+    100%{
+        color: black;
+    }
+}
+
+.death {
+    color: red;
+}
