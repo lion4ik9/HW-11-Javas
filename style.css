@@ -1,4 +1,13 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
 .warning {
+    width: 300px;
     animation: warning-light 1000ms linear infinite;
 }
 
@@ -15,6 +24,40 @@
     }
 }
 
+.failed {
+    width: 600px;
+    animation: fail 1000ms linear both;
+    align-self: center;
+}
+
+@keyframes fail {
+    0%{
+        opacity: 0;
+        transform: scale(7) rotate(360deg);
+    };
+
+    25%{
+        opacity: 0.25;
+    }
+
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 .death {
     color: red;
+    width: 200px;
+}
+
+h1 {
+    font-size: 154px;
+    align-self: center;
+    width: 430px;
+}
+
+h2 {
+    align-self: center;
+    font-size: 30px
 }

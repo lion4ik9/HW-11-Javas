@@ -39,9 +39,13 @@ setTimeout(() => {
 
 const timerCountdownDeath = document.getElementById('timer-countdown-death');
 
-let time = 30000;
-let flashing;
+let btn = '';
 
+
+
+function deathCounter() {
+    timerCountdownDeath.classList.remove('death')
+    let time = 30000;
 const countDown = setInterval(() => {
     time -= 4;
     const seconds = Math.floor(time / 1000);
@@ -53,10 +57,24 @@ const countDown = setInterval(() => {
     }
     if(time === 0) {
         clearInterval(countDown);
-        clearInterval(flashing)
+        const yodaSound = document.getElementById('yoda-sound');     
+        yodaSound.currentTime = 0;
+        yodaSound.volume = 0.2;
+        yodaSound.play();
         console.log('Час вийшов!')
         timerCountdownDeath.classList.remove('warning');
         timerCountdownDeath.classList.add('death')
-
+        btn = document.createElement('button')
+        btn.classList.add('failed')
+        btn.textContent = "Спробувати ще раз."
+        document.body.appendChild(btn)
+        btn.addEventListener('click', () => {
+            btn.remove();
+            deathCounter()
+        })
     }
-}, 4)
+}, 4);
+
+}
+
+deathCounter()
